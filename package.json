@@ -3,9 +3,18 @@
   "version": "0.0.1",
   "description": "Develop environment for my cl-webapp-sample's VIEW.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "author": "Kei Nakamura",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/keicy/clWebappSampleView.git"
+  },
+  "keywords": [
+    "cl-webapp-sample"
+  ],
+  "bugs": {
+    "url": "https://github.com/keicy/clWebappSampleView/issues"
+  },
+  "homepage": "https://github.com/keicy/clWebappSampleView"
 }
