@@ -16,5 +16,14 @@
   "bugs": {
     "url": "https://github.com/keicy/clWebappSampleView/issues"
   },
-  "homepage": "https://github.com/keicy/clWebappSampleView"
+  "homepage": "https://github.com/keicy/clWebappSampleView",
+  "devDependencies": {
+    "browserify": "^9.0.3",
+    "gulp": "^3.8.11",
+    "json-server": "^0.6.6",
+    "react": "^0.13.1",
+    "reactify": "^1.1.0",
+    "superagent": "^1.1.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
 }
