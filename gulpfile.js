@@ -23,6 +23,7 @@ gulp.task('js', function(){
         .pipe(plumber())
         .pipe(source('app.js'))
         .pipe(gulp.dest('./build'))
+        .pipe(gulp.dest('./public/js'))
         .pipe(browser.reload({stream:true}));
 });
 
@@ -33,16 +34,21 @@ gulp.task('html', function(){
 });
 
 gulp.task('watch', function(){
-    gulp.watch('./src/**/*.jsx',[js]);
-    gulp.watch('./public/**/*.html',[html]);
+    gulp.watch('./src/**/*.jsx',['js']);
+    gulp.watch('./public/**/*.html',['html']);
 });
 
 gulp.task('autoreload', function(){
     browser({
+        port: 7000,
         notify: false,
-        server: {
-            basedir: './'
-        }
+        proxy: 'localhost:3000'
+        //browser: 'Google Chrome'
+
+       //when use own server.
+       // server: {
+       //     basedir: './public'
+       //}
     });
 });
 
