@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var browserify = require('browserify');
 var source = require("vinyl-source-stream");
 var reactify = require('reactify');
+var glob = require('glob');
 var jsonServer = require('json-server');
 var plumber = require('gulp-plumber');
 var browser = require('browser-sync');
@@ -15,8 +16,9 @@ var paths = {
 };
 
 gulp.task('js', function(){
+    var jsxs = glob.sync('./src/**/*.jsx');
     var b = browserify({
-        entries: ['./src/hello.jsx'],
+        entries: jsxs,
         transform: [reactify]
     });
     return b.bundle()
