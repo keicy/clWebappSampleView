@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "Develop environment for my cl-webapp-sample's VIEW.",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "start": "gulp"
+  },
   "author": "Kei Nakamura",
   "license": "ISC",
   "repository": {
