@@ -55,11 +55,16 @@ gulp.task('autoreload', function(){
     });
 });
 
-gulp.task('runserver', function(){
-    var router = jsonServer.router(db);
-	 var server = jsonServer.create();
-    server.use(router);
-    server.listen(3000);
-});
+/*
+probably there is a bug in the module and when use POST API it cant update db.json,
+so at the moment i use npm grobal json-server instead of this local module.
+curiously its work.
+*/
+//gulp.task('runserver', function(){
+//    var router = jsonServer.router(db);
+//	 var server = jsonServer.create();
+//   server.use(router);
+//    server.listen(3000);
+//});
 
-gulp.task('default',['autoreload','watch','runserver']);
+gulp.task('default',['autoreload','watch']);
