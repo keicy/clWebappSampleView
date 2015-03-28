@@ -8,36 +8,37 @@ var plumber = require('gulp-plumber');
 var browser = require('browser-sync');
 var db = require('./db.json');
 
-var paths = {
-    basedir: './',
-    jsx: './src/**/*.jsx',
-    js: './build',
-    html: './public/**/*.html'
+var targets = {
+    main: 'app.js',
+    htmls: './public/**/*.html',
+    jsxs: './src/**/*.jsx',
+    buildd: './build',
+    jsd: './public/js'
 };
 
 gulp.task('js', function(){
-    var jsxs = glob.sync('./src/**/*.jsx');
+    var jsxs = glob.sync(targets.jsxs);
     var b = browserify({
         entries: jsxs,
         transform: [reactify]
     });
     return b.bundle()
         .pipe(plumber())
-        .pipe(source('app.js'))
-        .pipe(gulp.dest('./build'))
-        .pipe(gulp.dest('./public/js'))
+        .pipe(source(targets.main))
+        .pipe(gulp.dest(targets.buildd))
+        .pipe(gulp.dest(targets.jsd))
         .pipe(browser.reload({stream:true}));
 });
 
 gulp.task('html', function(){
-    return gulp.src('./public/**/*.html')
+    return gulp.src(targets.htmls)
         .pipe(plumber())
         .pipe(browser.reload({stream:true}));
 });
 
 gulp.task('watch', function(){
-    gulp.watch('./src/**/*.jsx',['js']);
-    gulp.watch('./public/**/*.html',['html']);
+    gulp.watch(targets.jsxs,['js']);
+    gulp.watch(targets.htmls,['html']);
 });
 
 gulp.task('autoreload', function(){
