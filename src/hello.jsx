@@ -1,15 +1,27 @@
 var React = require('react');
 var Request = require('superagent');
 
+//var Scroll1 = require('react-infinity');
+//var Scroll2 = require('react-infinite');
+//var Scroll3 = require('react-infinite-scroll');
+
+var Grid = require('react-bootstrap').Grid;
+var Row = require('react-bootstrap').Row;
+var Col = require('react-bootstrap').Col;
+var ListGroup = require('react-bootstrap').ListGroup;
+var ListGroupItem = require('react-bootstrap').ListGroupItem;
+
+
+
 var Comment = React.createClass({
   render: function() {
     return (
-      <div className="comment">
+      <ListGroupItem className="comment">
         <h2 className="commentAuthor">
           {this.props.author}
         </h2>
           {this.props.text}
-      </div>
+      </ListGroupItem>
     );
   }
 });
@@ -18,13 +30,14 @@ var CommentList = React.createClass({
   render: function() {
     var commentNodes = this.props.data.map(function (comment) {
       return (
-        <Comment author={comment.author} text={comment.text}>
-        </Comment>
+         <ListGroup>
+           <Comment author={comment.author} text={comment.text}></Comment>
+        </ListGroup>
       );
     });
     return (
       <div className="commentList">
-        {commentNodes}
+          {commentNodes}
       </div>
     );
   }
@@ -83,7 +96,17 @@ var CommentBox = React.createClass({
   }
 });
 
+var commentBox = (
+  <Grid>
+    <Row className='show-grid'>
+      <Col smOffset={2} sm={8} smOffset={2}>
+        <CommentBox url="http://127.0.0.1:3000/comments" pollInterval={5000} />
+      </Col>  
+    </Row>    
+  </Grid>
+);
+
 React.render(
-  <CommentBox url="http://127.0.0.1:3000/comments" pollInterval={3000} />,
+  commentBox,
   document.getElementById('content')
 );
