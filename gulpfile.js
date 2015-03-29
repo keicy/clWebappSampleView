@@ -12,6 +12,7 @@ var db = require('./db.json');
 var targets = {
     main: 'app.js',
     htmls: './public/**/*.html',
+    csss: './public/css/**/*.css',
     jsxs: './src/**/*.jsx',
     buildd: './build',
     jsd: './public/js'
@@ -37,9 +38,16 @@ gulp.task('html', function(){
         .pipe(browser.reload({stream:true}));
 });
 
+gulp.task('css', function(){
+    return gulp.src(targets.csss)
+        .pipe(plumber())
+        .pipe(browser.reload({stream:true}));
+});
+
 gulp.task('watch', function(){
     gulp.watch(targets.jsxs,['js']);
     gulp.watch(targets.htmls,['html']);
+    gulp.watch(targets.csss,['css']);
 });
 
 gulp.task('autoreload', function(){
