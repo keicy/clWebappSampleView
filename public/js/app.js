@@ -1,6 +1,6 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var React = require('react');
-var request = require('superagent');
+var Request = require('superagent');
 
 var Comment = React.createClass({displayName: "Comment",
   render: function() {
@@ -60,13 +60,13 @@ var CommentBox = React.createClass({displayName: "CommentBox",
     return {data: []};
   },
   handleCommentSubmit: function(comment) {
-    request
+    Request
         .post(this.props.url)
         .send(comment)
-        .end(function(err, res) {console.log("updating")}.bind(this));
+        .end(function(err, res) {});
   },
   myFuncLoadCommentsFromServer: function() {
-     request
+    Request
         .get(this.props.url)
         .end(function(err, res){this.setState({data: res.body})}.bind(this));
   },
@@ -88,6 +88,7 @@ React.render(
   React.createElement(CommentBox, {url: "http://127.0.0.1:3000/comments", pollInterval: 3000}),
   document.getElementById('content')
 );
+
 
 },{"react":157,"superagent":158}],2:[function(require,module,exports){
 // shim for using process in browser

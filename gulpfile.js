@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var seq = require('run-sequence');
 var browserify = require('browserify');
 var source = require("vinyl-source-stream");
 var reactify = require('reactify');
@@ -67,4 +68,6 @@ curiously its work.
 //    server.listen(3000);
 //});
 
-gulp.task('default',['autoreload','watch']);
+gulp.task('default',function() {
+    seq('js','watch','autoreload');
+});

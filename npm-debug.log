@@ -1,0 +1,37 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/home/kei/.nvm/versions/node/v0.12.0/bin/node',
+1 verbose cli   '/home/kei/.nvm/versions/node/v0.12.0/bin/npm',
+1 verbose cli   'start' ]
+2 info using npm@2.5.1
+3 info using node@v0.12.0
+4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+5 info prestart clWebappSampleView@0.0.1
+6 info start clWebappSampleView@0.0.1
+7 verbose unsafe-perm in lifecycle true
+8 info clWebappSampleView@0.0.1 Failed to exec start script
+9 verbose stack Error: clWebappSampleView@0.0.1 start: `json-server db.json & gulp`
+9 verbose stack Exit status 1
+9 verbose stack     at EventEmitter.<anonymous> (/home/kei/.nvm/versions/node/v0.12.0/lib/node_modules/npm/lib/utils/lifecycle.js:213:16)
+9 verbose stack     at EventEmitter.emit (events.js:110:17)
+9 verbose stack     at ChildProcess.<anonymous> (/home/kei/.nvm/versions/node/v0.12.0/lib/node_modules/npm/lib/utils/spawn.js:14:12)
+9 verbose stack     at ChildProcess.emit (events.js:110:17)
+9 verbose stack     at maybeClose (child_process.js:1008:16)
+9 verbose stack     at Process.ChildProcess._handle.onexit (child_process.js:1080:5)
+10 verbose pkgid clWebappSampleView@0.0.1
+11 verbose cwd /home/kei/dev/js/branchs/clWebappSampleView
+12 error Linux 3.2.0-4-amd64
+13 error argv "/home/kei/.nvm/versions/node/v0.12.0/bin/node" "/home/kei/.nvm/versions/node/v0.12.0/bin/npm" "start"
+14 error node v0.12.0
+15 error npm  v2.5.1
+16 error code ELIFECYCLE
+17 error clWebappSampleView@0.0.1 start: `json-server db.json & gulp`
+17 error Exit status 1
+18 error Failed at the clWebappSampleView@0.0.1 start script 'json-server db.json & gulp'.
+18 error This is most likely a problem with the clWebappSampleView package,
+18 error not with npm itself.
+18 error Tell the author that this fails on your system:
+18 error     json-server db.json & gulp
+18 error You can get their info via:
+18 error     npm owner ls clWebappSampleView
+18 error There is likely additional logging output above.
+19 verbose exit [ 1, true ]
