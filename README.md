@@ -7,13 +7,16 @@ You can also use this for your own VIEW development.
 1. Clone package  
 Clone this package in your local with the command `git clone`.
 
-2. Install json-server in grobal  
+2. Install json-server in the grobal  
 `npm install json-server -g`
 
 3. Go to root folder  
 `cd path-to-package-root/clWebappSampleView`
 
-4. Run server  
+4. Install Packages  
+`npm install`
+
+5. Run server  
 `npm start`  
 This command compile \*.jsx files in the ./src/\*\*/ to both ./build/app.js and ./public/js/app.js, and then start up web server.
 
